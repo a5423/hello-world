@@ -35,7 +35,7 @@
 
     <groupId>io.github.a5423</groupId>
     <artifactId>hello-world</artifactId>
-    <version>0.0.2</version>
+    <version>0.0.9</version>
 
     <packaging>jar</packaging>
 
