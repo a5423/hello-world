@@ -20,9 +20,9 @@
 
     <!-- SCM -->
     <scm>
-        <url>https://github.com/a5423/gaction-explore</url>
-        <connection>scm:git:git@github.com:a5423/gaction-explore.git</connection>
-        <developerConnection>scm:git:git@github.com:a5423/gaction-explore.git</developerConnection>
+        <url>https://github.com/a5423/hello-world</url>
+        <connection>scm:git:git@github.com:a5423/hello-world.git</connection>
+        <developerConnection>scm:git:git@github.com:a5423/hello-world.git</developerConnection>
     </scm>
 
     <!-- Distribution Management -->
@@ -35,7 +35,7 @@
 
     <groupId>io.github.a5423</groupId>
     <artifactId>hello-world</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.2</version>
 
     <packaging>jar</packaging>
 
@@ -56,6 +56,7 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.14.1</version>
                 <configuration>
+                    <release>${java.version}</release>
                     <source>${java.version}</source>
                     <target>${java.version}</target>
                 </configuration>

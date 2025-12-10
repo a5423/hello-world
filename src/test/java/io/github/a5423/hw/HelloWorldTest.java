@@ -21,8 +21,9 @@ public class HelloWorldTest {
     }
 
     @Test
-    void testEnglishMessage() {
-        var helloWorld = new HelloWorld("Messages", Locale.ENGLISH, printStream);
+    void testEnMessage() {
+        var config = new MessageConfig("Messages", Locale.ENGLISH);
+        var helloWorld = new HelloWorld(config, printStream);
         helloWorld.sendMessage();
         MatcherAssert.assertThat(
                 outputStream.toString(),
@@ -31,8 +32,9 @@ public class HelloWorldTest {
     }
 
     @Test
-    void testChineseMessage() {
-        var helloWorld = new HelloWorld("Messages", Locale.CHINA, printStream);
+    void testChMessage() {
+        var config = new MessageConfig("Messages", Locale.CHINA);
+        var helloWorld = new HelloWorld(config, printStream);
         helloWorld.sendMessage();
         MatcherAssert.assertThat(
                 outputStream.toString(),
@@ -41,9 +43,43 @@ public class HelloWorldTest {
     }
 
     @Test
+    void testEsMessage() {
+        var config = new MessageConfig("Messages", new Locale("es"));
+        var helloWorld = new HelloWorld(config, printStream);
+        helloWorld.sendMessage();
+        MatcherAssert.assertThat(
+                outputStream.toString(),
+                CoreMatchers.containsString("Hola Mundo!")
+        );
+    }
+
+    @Test
+    void testMxMessage() {
+        var config = new MessageConfig("Messages", new Locale("mx"));
+        var helloWorld = new HelloWorld(config, printStream);
+        helloWorld.sendMessage();
+        MatcherAssert.assertThat(
+                outputStream.toString(),
+                CoreMatchers.containsString("Hola Mundo!")
+        );
+    }
+
+    @Test
+    void testHiMessage() {
+        var config = new MessageConfig("Messages", new Locale("hi"));
+        var helloWorld = new HelloWorld(config, printStream);
+        helloWorld.sendMessage();
+        MatcherAssert.assertThat(
+                outputStream.toString(),
+                CoreMatchers.containsString("नमस्ते दुनिया!")
+        );
+    }
+
+    @Test
     void testUnknownLocaleFallbackToDefault() {
         var unknownLocale = new Locale("xx");
-        var helloWorld = new HelloWorld("Messages", unknownLocale, printStream);
+        var config = new MessageConfig("Messages", unknownLocale);
+        var helloWorld = new HelloWorld(config, printStream);
         helloWorld.sendMessage();
         MatcherAssert.assertThat(
                 outputStream.toString(),
